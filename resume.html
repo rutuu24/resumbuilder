@@ -36,6 +36,17 @@
                 <div class="form-group">
                     <label>Address</label>
                     <textarea id="address" class="form-control"></textarea>
+                </div>                
+                <div class="form-group">
+                    <label>Gender</label>
+                    <label><input type="radio" id="male" name="gender" />Male</label>
+                    <label><input type="radio" id="female" name="gender" />Female</label>
+                </div>            
+                <div class="form-group">
+                    <label>Hobbies</label>
+                    <label><input type="checkbox" id="dancing" />Dancing</label>
+                    <label><input type="checkbox" id="reading" />Reading</label>
+                    <label><input type="checkbox" id="cricket" />Cricket</label>
                 </div>
                 <div class="form-group">
                     <br />
@@ -52,7 +63,19 @@
                                 <b><label id="lblname">Abhijit P Gatade</label></b><br />
                                 <label id="lbladress">Rajarampuri 4th Lane, Kolhapur</label><br />
                                 <label id="lblmobileno">9561320192</label><br />
-                                <label id="lblemail">gatadeabhijit@gmail.com</label>
+                                <label id="lblemail">gatadeabhijit@gmail.com</label><br/>
+                                <label id="lblgender">Male</label><br/>
+                                <label id="lblgender">Female</label><br/>
+                                <label id="lblhobbies">Dancing</label><br/>
+                                <label id="lblhobbies">Reading</label><br/>
+                                <label id="lblhobbies">Cricket</label><br/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <label id="lblhobbies"></label>
                             </td>
                         </tr>
                     </table>
@@ -65,6 +88,22 @@
         function show() {
             document.getElementById("lblname").innerText = document.getElementById("name").value;
             document.getElementById("lbladress").innerText = document.getElementById("address").value;
+            document.getElementById("lblemail").innerText = document.getElementById("email").value;
+            var gender = document.getElementById("male").checked ? "Male" : "Female";
+            var hobbies = "";
+            if(document.getElementById("dancing").checked)
+                hobbies = "Dancing";
+            if(document.getElementById("reading").checked)
+                hobbies += (hobbies == "" ? "" : ", ") + "Reading";
+            if(document.getElementById("cricket").checked)
+                hobbies += (hobbies == "" ? "" : ", ") + "Cricket";
+            document.getElementById("lblhobbies").innerHTML = "<b>Hobbies:</b>" + hobbies;
+            if(document.getElementById("Male").checked)
+            gender = "Male";
+            if(document.getElementById("Female").checked)
+            gender += (gender==""?"":" ,")+"Female";
+            document.getElementById("lblgender").innerHTML = "<b>Gender:</b>"+gender;
+
         }
 
         function printmydiv()
